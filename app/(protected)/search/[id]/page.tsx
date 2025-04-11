@@ -98,11 +98,18 @@ export default async function Page(props: { params: Params }) {
   return (
     <main className="py-6 px-5 md:px-20 flex justify-around flex-col w-full gap-10">
       <div className="flex flex-col items-center">
-        <Link href={species.references} target="_blank">
+        {species.references ? (
+          <Link href={species?.references} target="_blank">
+            <h1 className=" text-primary-100 font-bold text-center">
+              {species.canonicalName}
+            </h1>
+          </Link>
+        ) : (
           <h1 className=" text-primary-100 font-bold text-center">
             {species.canonicalName}
           </h1>
-        </Link>
+        )}
+
         <h6 className="italic">{species.scientificName}</h6>
       </div>
 

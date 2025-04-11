@@ -7,6 +7,18 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET!;
 const REFRESH_SECRET = process.env.REFRESH_SECRET!;
 
+/**
+ * POST /api/signup
+ *
+ * Cadastra um novo usuário com email e senha.
+ * Verifica se o email já  existe no banco de dados.
+ * Se sim, retorna um erro 409.
+ * Caso contrário, cadastra o usuário e retorna
+ * um token de acesso e um token de refresh.
+ *
+ * @param {NextRequest} req
+ * @returns {Promise<NextResponse>}
+ */
 export async function POST(req: NextRequest) {
   try {
     const body: SignupFormData = await req.json();

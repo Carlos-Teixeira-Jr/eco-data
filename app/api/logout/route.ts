@@ -1,6 +1,14 @@
 import { supabase } from "@/app/lib/db/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
+/**
+ * POST /api/logout
+ *
+ * Faz logout do usuário, excluindo o token de refresh no banco de dados.
+ *
+ * @param {NextRequest} req
+ * @returns {Promise<NextResponse>}
+ */
 export async function POST(req: NextRequest) {
   try {
     const refreshToken = req.cookies.get("refreshToken")?.value;

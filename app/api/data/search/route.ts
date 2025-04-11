@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
+/**
+ * Busca espécies na API do GBIF com base no rank e na página informados.
+ *
+ * @param {NextRequest} req
+ * @return {NextResponse}
+ */
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const q = searchParams.get('q');

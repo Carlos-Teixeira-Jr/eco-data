@@ -13,7 +13,6 @@ import { useAppDispatch } from "@/app/redux/hooks/reduxHook";
 import ButtonLoader from "../info/loaders/ButtonLoader";
 import { logout } from "@/app/redux/slices/authSlice";
 import { clearSelectedItem } from "@/app/redux/slices/fetchParamsSlicer";
-import { LockClosedIcon } from "@heroicons/react/16/solid";
 import CloseIcon from "@/app/assets/icons/CloseIcon";
 
 const Header = () => {
