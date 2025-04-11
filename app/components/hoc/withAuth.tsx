@@ -1,5 +1,3 @@
-
-
 'use client'
 
 import { RootState } from "@/app/redux/store";
@@ -15,8 +13,8 @@ import { useSelector } from "react-redux";
  * @param WrappedComponent O componente a ser envolvido e protegido.
  * @returns Um novo componente que é protegido por autenticação.
  */
-const WithAuth = (WrappedComponent: React.ComponentType) => {
-  return function ProtectedComponent(props: any) {
+const WithAuth = <P extends object>(WrappedComponent:  React.ComponentType<P>) => {
+  return function ProtectedComponent(props: P) {
     const router = useRouter();
     const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 

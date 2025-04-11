@@ -38,7 +38,7 @@ export default async function Page(props: { params: Params }) {
    * @param {PromiseSettledResult<Response>} res O objeto de resposta.
    * @returns {Promise<any>} O conteúdo JSON da resposta, ou nulo se a solicitação falhar.
    */
-  const getJSON = async (res: PromiseSettledResult<Response>): Promise<any> =>
+  const getJSON = async <T = any>(res: PromiseSettledResult<Response>): Promise<T | null> =>
     res.status === "fulfilled" && isValidJSONResponse(res.value)
       ? await res.value.json()
       : null;
