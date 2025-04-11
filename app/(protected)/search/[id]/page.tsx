@@ -32,6 +32,7 @@ export default async function Page(props: { params: Params }) {
       next: { revalidate: 3600 },
     }),
   ]);
+  
 
   /**
    * Fução auxiliar para obter o conteúdo JSON de uma resposta, lidando com erros com boas práticas.
