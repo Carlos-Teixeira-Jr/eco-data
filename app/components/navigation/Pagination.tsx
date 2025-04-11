@@ -1,5 +1,4 @@
 import NextArrowIcon from "@/app/assets/icons/NextArrowIcon";
-import { current } from "@reduxjs/toolkit";
 
 interface IPagination {
   endOfRecords: boolean;

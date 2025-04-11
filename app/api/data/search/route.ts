@@ -16,8 +16,6 @@ export async function GET(req: NextRequest) {
     const formattedString = rank?.toUpperCase();
     const offset = (page - 1) * 15;
 
-    console.log`https://api.gbif.org/v1/species/search?q=${q}&rank=${formattedString}&limit=15&offset=${offset}`
-
     const response = await fetch(`https://api.gbif.org/v1/species/search?q=${formattedString}&rank=${rank}&status=ACCEPTED&limit=15&offset=${offset}`);
 
     if (!response.ok) {

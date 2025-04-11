@@ -4,7 +4,6 @@ import ShareIcon from "@/app/assets/icons/ShareIcon";
 import StudyIcon from "@/app/assets/icons/StudyIcon";
 
 const InfoSection = () => {
-  const iconDimensions = "34px";
   const fill = "#9dbf21";
 
   const sections = [

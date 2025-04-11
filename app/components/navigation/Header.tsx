@@ -75,7 +75,11 @@ const Header = () => {
         <button
           className="m-0 hidden md:block"
           onClick={() => {
-            isAuthenticated ? handleLogout() : push("/login");
+            if (isAuthenticated) {
+              return handleLogout();
+            } else {
+              return push("/login");
+            }
           }}
         >
           {isAuthenticated ? "Logout" : "Login"}

@@ -17,7 +17,7 @@ export function validateEmail(email: string): {
   errorMsg: string;
   isValid: boolean;
 } {
-  let emailValue = email.trim();
+  const emailValue = email.trim();
   let errorMsg = "";
 
   if (emailValue.length === 0) {

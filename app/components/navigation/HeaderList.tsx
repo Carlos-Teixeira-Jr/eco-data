@@ -8,10 +8,10 @@ import { useSelector } from "react-redux";
 import { usePathname, useRouter } from "next/navigation";
 
 interface IHeaderList {
-  menuIsOpen: (menuIsopen: boolean) => void
+  menuIsOpen: (menuIsopen: boolean) => void;
 }
 
-const HeaderList = ({menuIsOpen}: IHeaderList) => {
+const HeaderList = ({ menuIsOpen }: IHeaderList) => {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
@@ -67,12 +67,20 @@ const HeaderList = ({menuIsOpen}: IHeaderList) => {
       ))}
 
       {isLoading ? (
-        <ButtonLoader btnIsDark={true} className="m-0 w-full "/>
+        <ButtonLoader btnIsDark={true} className="m-0 w-full " />
       ) : (
         <button
-          className={`m-0 block w-full md:hidden ${isAuthenticated || pathname === "/login" ? "hidden" : "transition duration-500 ease-in-out"}`}
+          className={`m-0 block w-full md:hidden ${
+            isAuthenticated || pathname === "/login"
+              ? "hidden"
+              : "transition duration-500 ease-in-out"
+          }`}
           onClick={() => {
-            isAuthenticated ? handleLogout() : handleRedirectToLogin();
+            if (isAuthenticated) {
+              handleLogout();
+            } else {
+              handleRedirectToLogin();
+            }
           }}
         >
           {isAuthenticated ? "Logout" : "Login"}

@@ -140,7 +140,7 @@ const AuthForm = () => {
       password: "",
     });
 
-    let signinFormDataErrors = {
+    const signinFormDataErrors = {
       email: "",
       password: "",
     };
@@ -229,7 +229,7 @@ const AuthForm = () => {
       name: "",
     });
 
-    let signupFormDataErrors = {
+    const signupFormDataErrors = {
       email: "",
       password: "",
       name: "",

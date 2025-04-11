@@ -1,6 +1,5 @@
 "use client";
 
-import NextArrowIcon from "@/app/assets/icons/NextArrowIcon";
 import { usePathname } from "next/navigation";
 
 export function Breadcrumb() {
@@ -9,9 +8,9 @@ export function Breadcrumb() {
   let breadcrumb = "SIAPESQ";
 
   /**
-   * This switch statement generates the breadcrumb text based on the current
-   * URL pathname. It sets the `pageName` variable to the name of the current
-   * page, and appends the breadcrumb text to the `breadcrumb` variable.
+   * Este switch statement gera o texto do breadcrumb com base no caminho
+   * atual da URL. Ele define a variável `pageName` como o nome da página
+   * atual e adiciona o texto do breadcrumb à variável `breadcrumb`.
    */
   switch (true) {
     case pathname.includes("signup"):

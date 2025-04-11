@@ -23,7 +23,7 @@ const DataList = () => {
 
   const totalPages = data?.count ? Math.ceil(data.count / ITEMS_PER_PAGE) : 0;
   const [currentPage, setCurrentPage] = useState(1);
-  let offset = (currentPage - 1) * ITEMS_PER_PAGE;
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   const [showToast, setShowToast] = useState({
     show: false,

@@ -89,6 +89,7 @@ export async function POST(req: NextRequest) {
 
     return response;
   } catch (error) {
+    console.error("Erro ao buscar o usuário:", error);
     return NextResponse.json(
       { error: "Erro ao buscar o usuário." },
       { status: 500 }

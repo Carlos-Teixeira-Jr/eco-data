@@ -32,6 +32,7 @@ export async function POST(req: NextRequest) {
 
     return response;
   } catch (error) {
+    console.error("Erro ao realizar logout:", error);
     return NextResponse.json(
       { error: "Erro ao realizar logout." },
       { status: 500 }

@@ -3,8 +3,6 @@ import SecurityIcon from "@/app/assets/icons/SecurityIcon";
 import StyleIcon from "@/app/assets/icons/StyleIcon";
 import SyncIcon from "@/app/assets/icons/SyncIcon";
 import ToolsIcon from "@/app/assets/icons/ToolsIcons";
-import BannerFooter from "../../../public/banner-footer.webp";
-import Image from "next/image";
 
 export default function aboutApp() {
   const technicalFeatures = [

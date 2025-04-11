@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 
@@ -8,16 +8,20 @@ interface IToast {
     type: string;
     show: boolean;
   };
-  handleRemoveToast: (toastProps: any) => void;
+  handleRemoveToast: (toastProps: {
+    show: boolean;
+    message: string;
+    type: string;
+  }) => void;
 }
 
 /**
  * Componente de toast que exibe uma mensagem de notificação temporária.
- * 
+ *
  * Este componente aceita propriedades de toast e uma função de callback para lidar
  * com a remoção do toast. Quando o toast está visível, ele inicia um timer
  * para diminuir gradativamente a barra de progresso e remove-lo depois de um tempo especificado.
- * 
+ *
  * @param {Object} props - As propriedades do componente toast.
  * @param {Object} props.toastProps - As propriedades do estado do toast.
  * @param {string} props.toastProps.message - A mensagem exibida no toast.
