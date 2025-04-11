@@ -7,19 +7,19 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-interface SpeciesPageProps {
-  params: {
-    id: string;
-  };
-}
-
 function isValidJSONResponse(res: Response) {
   const contentType = res.headers.get("content-type");
   return res.ok && contentType && contentType.includes("application/json");
 }
 
-export default async function SpeciesPage(props: SpeciesPageProps) {
-  const { id } = props.params;
+export default async function SpeciesPage({
+  params,
+}: {
+  params: {
+    id: string;
+  };
+}) {
+  const { id } = params;
 
   const results = await Promise.allSettled([
     fetch(`https://api.gbif.org/v1/species/${id}`, {
@@ -101,7 +101,11 @@ export default async function SpeciesPage(props: SpeciesPageProps) {
   return (
     <main className="py-6 px-5 md:px-20 flex justify-around flex-col w-full gap-10">
       <div className="flex flex-col items-center">
-        <Link href={species.references} target="_blank"><h1 className=" text-primary-100 font-bold text-center">{species.canonicalName}</h1></Link>
+        <Link href={species.references} target="_blank">
+          <h1 className=" text-primary-100 font-bold text-center">
+            {species.canonicalName}
+          </h1>
+        </Link>
         <h6 className="italic">{species.scientificName}</h6>
       </div>
 
@@ -142,7 +146,6 @@ export default async function SpeciesPage(props: SpeciesPageProps) {
         </div>
 
         {media.results.length > 0 && <SpeciesCarousel images={media.results} />}
-
       </div>
       <div className="w-full z-20">
         {species?.key && (
