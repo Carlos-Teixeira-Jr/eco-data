@@ -32,14 +32,14 @@ export default async function Page(props: { params: Params }) {
       next: { revalidate: 3600 },
     }),
   ]);
-  
+
   /**
-   * Uma função auxiliar que obtém o JSON de uma Response, se esta for válida.
-   * Caso a resposta seja inválida, retorna null.
-   * @param {PromiseSettledResult<Response>} res A resposta da qual obteremos o JSON.
-   * @returns {Promise<T | null>} O objeto JSON da resposta, ou null se a resposta for inválida.
+   * Fução auxiliar para obter o conteúdo JSON de uma resposta, lidando com erros com boas práticas.
+   * @param {PromiseSettledResult<Response>} res O objeto de resposta.
+   * @returns {Promise<any>} O conteúdo JSON da resposta, ou nulo se a solicitação falhar.
    */
-  const getJSON = async <T = any>(res: PromiseSettledResult<Response>): Promise<T | null> =>
+  // @ts-ignore
+  const getJSON = async (res: PromiseSettledResult<Response>): Promise<any> =>
     res.status === "fulfilled" && isValidJSONResponse(res.value)
       ? await res.value.json()
       : null;
