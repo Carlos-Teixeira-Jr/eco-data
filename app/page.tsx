@@ -1,0 +1,21 @@
+'use client'
+
+import { useRouter } from "next/navigation";
+import AboutSection from "./components/home/AboutSection";
+import InfoSection from "./components/home/InfoSection";
+import LogoBanner from "./components/home/LogoBanner";
+
+export default function Home() {
+  const navigator = useRouter();
+  
+  return (
+    <div className="flex flex-col">
+      <AboutSection />
+      <LogoBanner />
+      <InfoSection />
+      <div className="w-full flex justify-center items-center pb-5">
+        <button className="btn-dark w-full md:w-1/5 py-10 text-3xl flex items-center justify-center drop-shadow-md md:m-0" onClick={() => navigator.push("/search")}>Experimente!</button>
+      </div>
+    </div>
+  );
+}

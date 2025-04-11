@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+@import "react-responsive-carousel/lib/styles/carousel.min.css";
+@import "leaflet/dist/leaflet.css";
+
+@font-face {
+  font-family: 'Syndra';
+  src: url('/fonts/syndra-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-syndra: 'Syndra', sans-serif;
+}
+
+
+@import "tailwindcss";
+
+@layer base {
+  html {
+    @apply bg-neutral-900;
+  }
+
+  body {
+    @apply bg-primary-900 flex flex-col min-h-screen text-sm font-normal w-full;
+  }
+
+  main {
+    @apply flex-1 flex justify-center items-center w-full;
+  }
+
+  p {
+    @apply text-sm leading-[175%] font-medium text-primary-800;
+  }
+
+  label {
+    @apply text-base md:text-sm leading-6 font-medium text-neutral-400;
+  }
+
+  h1 {
+    @apply text-[40px] leading-[150%] font-bold text-primary-800;
+  }
+
+  h2 {
+    @apply text-[32px] font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl font-bold text-neutral-400;
+  }
+
+  h4 {
+    @apply text-xl md:text-lg font-semibold text-neutral-400;
+  }
+
+  h5 {
+    @apply text-base font-semibold text-primary-100;
+  }
+
+  h6 {
+    @apply text-sm font-medium text-neutral-500;
+  }
+
+  button {
+    @apply text-base font-semibold border-neutral-900 rounded-full border-3 px-5 py-3 text-neutral-900 m-3 cursor-pointer transform hover:scale-103 duration-300 ease-in-out h-[54px] max-h-[54px] w-35;
+  }
+
+  ul {
+    @apply flex flex-col gap-4;
+  }
+
+  li {
+    @apply text-base cursor-pointer leading-[175%] font-medium text-primary-900 transform hover:text-primary-600 hover:scale-105 duration-200 ease-in-out;
+  }
+
+  form {
+    @apply flex flex-col gap-4 w-full min-w-75;
+  }
+
+  input {
+    @apply text-sm font-medium text-neutral-500 h-11 border border-neutral-700 rounded-md px-4 py-2 bg-auto w-full;
+  }
+
+  a {
+    @apply text-xl md:text-lg font-semibold cursor-pointer text-primary-300 transform hover:text-primary-100 hover:scale-110 duration-200 ease-in-out;
+  }
+
+  span {
+    @apply text-sm font-normal cursor-pointer text-red-500 transition-colors hover:text-red-200 duration-200 ease-in-out;
+  }
+}
+
+@layer components {
+  .btn-dark {
+    @apply border-primary-100 text-primary-100 transition-colors hover:bg-primary-100 hover:text-primary-900 duration-300 hover:border-primary-900 ease-in-out;
+  }
+
+  .btn-loader-light {
+    @apply hover:bg-primary-900 hover:text-primary-100 border-primary-400 hover:border-primary-400 cursor-auto flex items-center justify-center gap-1 h-[54px] max-h-[54px] hover:scale-none;
+  }
+
+  .btn-loader-dark {
+    @apply cursor-auto flex items-center justify-center gap-1 h-[54px] max-h-[54px] hover:scale-100 border-primary-900 hover:text-primary-100;
+  }
+
+  .a-light {
+    @apply text-primary-900 hover:text-primary-600 hover:scale-110 duration-200 ease-in-out;
+  }
+
+  .p-dark {
+    @apply text-neutral-400;
+  }
+
+  .h1-dark {
+    @apply text-secondary-600;
+  }
+
+  .card {
+    @apply border border-neutral-700 bg-secondary-200 rounded-sm p-4 cursor-pointer hover:bg-secondary-300 transform hover:border-secondary-600 duration-200 ease-in-out flex flex-col justify-between;
+  }
+
+  .card-description-label {
+    @apply text-lg font-bold text-neutral-400;
+  }
+
+  .font-lora {
+    font-family: "Lora", serif;
+  }
+
+  .logo-big {
+    @apply text-6xl text-transparent bg-gradient-to-r from-secondary-600 via-tertiary-100 to-primary-100 bg-clip-text  text-shadow-2xs shadow-tertiary-500 leading-tight drop-shadow-[0_0_10px_rgba(0.2,0,0,0.2)] w-fit text-center
+  }
+
+  .light-bouncing-dots {
+    @apply text-7xl text-primary-400 leading-none animate-bounce pb-10 cursor-auto;
+  }
+
+  .dark-bouncing-dots {
+    @apply text-7xl text-primary-900 leading-none animate-bounce pb-10 cursor-auto;
+  }
+}
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+  --breakpoint-3xl: 120rem;
+  --color-primary-100: #204c73;
+  --color-primary-200: #31608a;
+  --color-primary-300: #6689a9;
+  --color-primary-400: #8da9c1;
+  --color-primary-500: #b2c5d6;
+  --color-primary-600: #c6d5e2;
+  --color-primary-700: #d8daea;
+  --color-primary-800: #e6ecf1;
+  --color-primary-900: #f2f7fb;
+  --color-neutral-100: #000000;
+  --color-neutral-200: #1b1b1b;
+  --color-neutral-300: #272727;
+  --color-neutral-400: #3d3d3d;
+  --color-neutral-500: #5e5e5e;
+  --color-neutral-600: #9f9f9f;
+  --color-neutral-700: #c7c7c7;
+  --color-neutral-800: #e2e2e2;
+  --color-neutral-900: #f2f2f2;
+  --color-secondary-100: #eef8cc;
+  --color-secondary-200: #e1f0ab;
+  --color-secondary-300: #d4ea84;
+  --color-secondary-400: #cce868;
+  --color-secondary-500: #b6d73d;
+  --color-secondary-600: #9dbf21;
+  --color-tertiary-100: #55735f;
+  --color-tertiary-200: #3e634a;
+  --color-tertiary-300: #275937;
+  --color-tertiary-400: #1d4a2b;
+  --color-tertiary-500: #0d361a;
+  --color-tertiary-600: #02250d;
+  --color-info-900: #306cef;
+  --color-success-900: #057234;
+  --color-warning-900: #f3b40a;
+  --color-danger-900: #be1313;
+  --color-disabled-900: #a3a3a3;
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  --animate-bounce: bounce 1s infinite;
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(-10%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}
