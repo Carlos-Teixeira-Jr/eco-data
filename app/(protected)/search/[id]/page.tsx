@@ -12,8 +12,11 @@ function isValidJSONResponse(res: Response) {
   return res.ok && contentType && contentType.includes("application/json");
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
+type Params = Promise<{ id: string }>;
+
+export default async function Page(props: { params: Params }) {
+  const params = await props.params;
+  const id = params.id;
 
   const results = await Promise.allSettled([
     fetch(`https://api.gbif.org/v1/species/${id}`, {
