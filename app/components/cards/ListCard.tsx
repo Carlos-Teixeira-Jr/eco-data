@@ -8,7 +8,7 @@ import {
 } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/16/solid";
 import { useRouter } from "next/navigation";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import ButtonLoader from "../info/loaders/ButtonLoader";
 
 interface IListCard {
@@ -43,7 +43,6 @@ export const ListCard = ({ data }: IListCard) => {
   const navigator = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [hasMapData, setHasMapData] = useState(false);
 
   const [expandedDescription, setExpandedDescription] =
     useState<CardDescExpantion>({

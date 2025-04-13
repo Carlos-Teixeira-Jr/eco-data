@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 import AboutSection from "./components/home/AboutSection";
 import InfoSection from "./components/home/InfoSection";
 import LogoBanner from "./components/home/LogoBanner";
-import Button from "./components/info/loaders/Button";
-import { useState } from "react";
 
 export default function Home() {
   const navigator = useRouter();
