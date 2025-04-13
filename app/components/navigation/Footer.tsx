@@ -76,7 +76,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between w-full pb-10 relative z-10">
         <div className="flex flex-col justify-center items-center w-fit mb-8 md:mb-0 mx-auto md:mx-0">
           <h1>SIAPESQ</h1>
-          <div className="pb-8">
+          <div className="pb-8 text-primary-100">
             <h5>siapesq@gmail.com</h5>
             <h5>53 99950-3671</h5>
           </div>

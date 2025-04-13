@@ -71,7 +71,7 @@ const HeaderList = ({ menuIsOpen }: IHeaderList) => {
       ) : (
         <button
           className={`m-0 block w-full md:hidden ${
-            isAuthenticated || pathname === "/login"
+            pathname === "/login"
               ? "hidden"
               : "transition duration-500 ease-in-out"
           }`}

@@ -117,9 +117,9 @@ export default async function Page(props: { params: Params }) {
       </div>
 
       <div className="flex flex-col md:flex-row gap-10 w-full justify-around">
-        <div className="flex w-full justify-between gap-5 md:gap-10">
+        <div className="flex flex-col md:flex-row w-full justify-between gap-5 md:gap-10">
           <div className="flex-1 flex flex-col gap-5 border border-secondary-400 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-primary-100 h-16 md:h-auto">
+            <h3 className="text-2xl font-semibold text-primary-100 md:h-16 h-auto">
               Taxonomia
             </h3>
             <hr className="border-secondary-400" />

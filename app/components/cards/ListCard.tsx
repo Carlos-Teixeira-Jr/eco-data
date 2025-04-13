@@ -159,7 +159,7 @@ export const ListCard = ({ data }: IListCard) => {
           return (
             <div className="flex flex-col py-2" key={label}>
               <label>{label}</label>
-              <h5>{value}</h5>
+              <h5 className="text-primary-100">{value}</h5>
             </div>
           );
         })}
