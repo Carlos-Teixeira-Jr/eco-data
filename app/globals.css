@@ -4,16 +4,15 @@
 @import "leaflet/dist/leaflet.css";
 
 @font-face {
-  font-family: 'Syndra';
-  src: url('/fonts/syndra-regular.otf') format('opentype');
+  font-family: "Syndra";
+  src: url("/fonts/syndra-regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 :root {
-  --font-syndra: 'Syndra', sans-serif;
+  --font-syndra: "Syndra", sans-serif;
 }
-
 
 @import "tailwindcss";
 
@@ -51,7 +50,7 @@
   }
 
   h4 {
-    @apply text-xl md:text-lg font-semibold text-neutral-400;
+    @apply text-lg font-medium md:font-semibold text-neutral-400;
   }
 
   h5 {
@@ -89,9 +88,17 @@
   span {
     @apply text-sm font-normal cursor-pointer text-red-500 transition-colors hover:text-red-200 duration-200 ease-in-out;
   }
+
+  header {
+    @apply flex items-center justify-between bg-primary-100 py-2 px-5 md:px-10 bg-gradient-to-l from-primary-100 to-primary-500 drop-shadow-xl md:fixed top-0 left-0 right-0 z-50 h-20 max-h-20;
+  }
 }
 
 @layer components {
+  .btn {
+    @apply text-base font-semibold border-neutral-900 rounded-full border-3 px-5 py-3 text-neutral-900 m-3 cursor-pointer transform hover:scale-103 duration-300 ease-in-out h-[54px] max-h-[54px] w-35;
+  }
+
   .btn-dark {
     @apply border-primary-100 text-primary-100 transition-colors hover:bg-primary-100 hover:text-primary-900 duration-300 hover:border-primary-900 ease-in-out;
   }
@@ -102,6 +109,10 @@
 
   .btn-loader-dark {
     @apply cursor-auto flex items-center justify-center gap-1 h-[54px] max-h-[54px] hover:scale-100 border-primary-900 hover:text-primary-100;
+  }
+
+  .btn-cta {
+    @apply md:w-1/5 text-lg md:py-10 md:text-3xl flex items-center justify-center drop-shadow-md md:m-0;
   }
 
   .a-light {
@@ -129,7 +140,7 @@
   }
 
   .logo-big {
-    @apply text-6xl text-transparent bg-gradient-to-r from-secondary-600 via-tertiary-100 to-primary-100 bg-clip-text  text-shadow-2xs shadow-tertiary-500 leading-tight drop-shadow-[0_0_10px_rgba(0.2,0,0,0.2)] w-fit text-center
+    @apply text-6xl text-transparent bg-gradient-to-r from-secondary-600 via-tertiary-100 to-primary-100 bg-clip-text  text-shadow-2xs shadow-tertiary-500 leading-tight drop-shadow-[0_0_10px_rgba(0.2,0,0,0.2)] w-fit text-center;
   }
 
   .light-bouncing-dots {
@@ -138,6 +149,22 @@
 
   .dark-bouncing-dots {
     @apply text-7xl text-primary-900 leading-none animate-bounce pb-10 cursor-auto;
+  }
+
+  .ul-vertical {
+    @apply flex flex-col gap-4;
+  }
+
+  .ul-responsive {
+    @apply flex flex-col md:flex-row gap-5 md:gap-10 h-fit;
+  }
+
+  .li-nav {
+    @apply text-base cursor-pointer leading-[175%] font-medium text-primary-900 transform hover:text-primary-600 hover:scale-105 duration-200 ease-in-out;
+  }
+
+  .a-light {
+    @apply text-xl md:text-lg font-semibold cursor-pointer text-primary-800 transform hover:text-primary-600 hover:scale-110 duration-200 ease-in-out;
   }
 }
 
@@ -185,7 +212,8 @@
   --animate-bounce: bounce 1s infinite;
 
   @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(-10%);
       animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
     }

@@ -32,9 +32,11 @@ export function Breadcrumb() {
     case pathname.includes("forbiddenPage"):
       pageName = "Acesso negado";
       breadcrumb += " / 403";
+      break
     case pathname.includes("aboutApp"):
       pageName = "Sobre o Eco Data";
       breadcrumb += " / Sobre o Eco Data";
+      break;
     default:
       break;
   }

@@ -3,12 +3,21 @@ import { supabase } from "@/app/lib/db/supabase";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { COOKIES_TOKEN_EXPIRES_IN, JWT_EXPIRES_IN, REFRESH_EXPIRES_IN } from "@/app/config/tokens";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
-const JWT_EXPIRES_IN = "15m";
 const REFRESH_SECRET = process.env.REFRESH_SECRET!;
-const REFRESH_EXPIRES_IN = "7d";
 
+/**
+ * POST /api/login
+ *
+ * Realiza o login de um usuário com email e senha.
+ * Verifica se o email e a senha informados são válidos.
+ * Se sim, retorna um token de acesso e um token de refresh.
+ *
+ * @param {NextRequest} req
+ * @returns {Promise<NextResponse>}
+ */
 export async function POST(req: NextRequest) {
   try {
     const body: SigninFormData = await req.json();
@@ -59,7 +68,7 @@ export async function POST(req: NextRequest) {
         ip_address:
           req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
           "unknown",
-        expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 dias
+        expires_at: new Date(Date.now() + COOKIES_TOKEN_EXPIRES_IN), // 30 dias
       },
     ]);
 
@@ -71,20 +80,18 @@ export async function POST(req: NextRequest) {
 
     response.cookies.set("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       path: "/",
-      maxAge: 60 * 60 * 24 * 30, // 30 dias
+      maxAge: COOKIES_TOKEN_EXPIRES_IN,
     });
 
     response.cookies.set("token", token, {
-      name: "token",
-      value: token,
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       path: "/",
-      maxAge: 60 * 60 * 24 * 30 // 30 dias
+      maxAge: COOKIES_TOKEN_EXPIRES_IN,
     });
 
     return response;

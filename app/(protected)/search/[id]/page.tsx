@@ -1,11 +1,11 @@
 import { SpeciesCarousel } from "@/app/components/searchPageComponents/SpeciesCarousel";
-import SpeciesMap from "@/app/components/searchPageComponents/SpeciesMap";
 import {
   SpeciesProfile,
   SpeciesProfileResponse,
 } from "@/app/interfaces/data/profiles.interfaces";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SpeciesMapClientWrapper from "@/app/components/searchPageComponents/SpeciesMapClientWrapper";
 
 function isValidJSONResponse(res: Response) {
   const contentType = res.headers.get("content-type");
@@ -17,6 +17,7 @@ type Params = Promise<{ id: string }>;
 export default async function Page(props: { params: Params }) {
   const params = await props.params;
   const id = params.id;
+
 
   const results = await Promise.allSettled([
     fetch(`https://api.gbif.org/v1/species/${id}`, {
@@ -159,7 +160,7 @@ export default async function Page(props: { params: Params }) {
             <h3 className="text-2xl font-semibold text-primary-100 mb-5">
               Mapa de Ocorrência
             </h3>
-            <SpeciesMap taxonKey={species.key} />
+            <SpeciesMapClientWrapper taxonKey={species.key}/>
           </section>
         )}
       </div>

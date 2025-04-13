@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify, SignJWT } from "jose";
+import { COOKIES_TOKEN_EXPIRES_IN } from "@/app/config/tokens";
 
 const encoder = new TextEncoder();
 const JWT_SECRET = encoder.encode(process.env.JWT_SECRET!);
@@ -32,7 +33,7 @@ export async function POST(req: NextRequest) {
       name: payload.name,
     })
       .setProtectedHeader({ alg: "HS256" })
-      .setExpirationTime("15m") // tempo realista
+      .setExpirationTime("15m")
       .setIssuedAt()
       .sign(JWT_SECRET);
 
@@ -46,14 +47,14 @@ export async function POST(req: NextRequest) {
       path: "/",
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
-      maxAge: 60 * 60 * 24 * 30, // 30 dias
+      maxAge: COOKIES_TOKEN_EXPIRES_IN,
     });
 
     return response;
   } catch (error) {
     console.error("Erro ao validar refresh token:", error);
     return NextResponse.json(
-      { error: "Refresh token inválido ou expirado." },
+      { error: "refres token ->Refresh token inválido ou expirado." },
       { status: 403 }
     );
   }

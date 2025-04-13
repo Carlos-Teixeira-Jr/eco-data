@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import AuthForm from "../../components/forms/AuthForm";
 import Toast from "../../components/info/toasts/Toast";
+import LogotypeCard from "@/app/components/style/LogotypeCard";
 
 const LoginPage = () => {
   const [showToast, setShowToast] = useState({
@@ -25,7 +26,8 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-0">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-0 pb-40">
+      <LogotypeCard/>
       {showToast.show && (
         <Toast
           toastProps={showToast}

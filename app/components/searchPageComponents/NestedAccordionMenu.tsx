@@ -19,7 +19,7 @@ const layerColors = [
   "bg-neutral-500",
   "bg-neutral-100",
   "bg-tertiary-100",
-  "bg-tertiary-500",
+  "bg-primary-300",
 ];
 
 interface INestedAccordion {

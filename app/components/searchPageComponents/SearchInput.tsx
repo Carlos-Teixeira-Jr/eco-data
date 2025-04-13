@@ -21,7 +21,8 @@ const SearchInput = () => {
    * 
    * @function
    */
-  const handleSearch = () => {
+  const 
+  handleSearch = () => {
     if (!inputValue.trim()) return;
 
     dispatch(
@@ -65,8 +66,11 @@ const SearchInput = () => {
         width="24px"
         height="24px"
         fill="#5e5e5e"
-        className="absolute top-2.5 right-2.5 cursor-pointer hover:scale-115 transform transition-all duration-300 ease-in-out hover:fill-primary-100"
-        onClick={handleSearch}
+        className="absolute pointer-events-auto top-2.5 right-2.5 cursor-pointer hover:scale-115 transform transition-all duration-300 ease-in-out hover:fill-primary-100"
+        onMouseDown={(e: React.MouseEvent) => {
+          e.preventDefault();
+          handleSearch();
+        }}
       />
 
       {submittedValue && (

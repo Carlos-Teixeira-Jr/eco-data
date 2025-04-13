@@ -57,10 +57,10 @@ const HeaderList = ({ menuIsOpen }: IHeaderList) => {
   };
 
   return (
-    <ul className={`flex flex-col md:flex-row gap-5 md:gap-10 h-fit`}>
+    <ul className={`ul-responsive`}>
       {options.map((option) => (
-        <li key={option.value}>
-          <a className="a-light text-3xl md:text-lg" href={`${option.link}`}>
+        <li key={option.value} className="li-nav">
+          <a className="a-light" href={`${option.link}`}>
             {option.label}
           </a>
         </li>

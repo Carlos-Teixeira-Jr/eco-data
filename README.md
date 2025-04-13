@@ -49,7 +49,7 @@ cd 2025-01-desafio-front-end
 ### 2. **Entrar na branch de carlos-teixeira**
 
 ```bash
-git checkout minha-branch-siapesq
+git checkout carlos-teixeira
 ```
 
 ### 2. **Instalar dependências**
@@ -58,3 +58,6 @@ git checkout minha-branch-siapesq
 npm install
 ```
 
+### 2. **Criar chaves de API para o banco de dados**
+
+[Supabase](https://supabase.com/)

@@ -3,6 +3,7 @@ import { supabase } from "@/app/lib/db/supabase";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { COOKIES_REFRESH_TOKEN_EXPIRES_IN, JWT_EXPIRES_IN } from "@/app/config/tokens";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const REFRESH_SECRET = process.env.REFRESH_SECRET!;
@@ -60,18 +61,18 @@ export async function POST(req: NextRequest) {
     }
 
     const accessToken = jwt.sign({ id: newUser.id }, JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: JWT_EXPIRES_IN,
     });
 
     const refreshToken = jwt.sign({ id: newUser.id }, REFRESH_SECRET, {
-      expiresIn: "30d",
+      expiresIn: COOKIES_REFRESH_TOKEN_EXPIRES_IN,
     });
 
     const ip =
       req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     const userAgent = req.headers.get("user-agent") || "unknown";
 
-    const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+    const expiresAt = new Date(Date.now() + COOKIES_REFRESH_TOKEN_EXPIRES_IN * 1000);
 
     await supabase.from("tokens").insert([
       {
@@ -90,11 +91,19 @@ export async function POST(req: NextRequest) {
       refreshToken,
     });
 
+    response.cookies.set("token", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/",
+      maxAge: COOKIES_REFRESH_TOKEN_EXPIRES_IN,
+    });
+
     response.cookies.set("refreshToken", refreshToken, {
       httpOnly: true,
       sameSite: "strict",
       path: "/",
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      maxAge: COOKIES_REFRESH_TOKEN_EXPIRES_IN,
     });
 
     return response;
