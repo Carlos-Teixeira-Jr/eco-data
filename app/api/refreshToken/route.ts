@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify, SignJWT } from "jose";
-import { COOKIES_TOKEN_EXPIRES_IN } from "@/app/config/tokens";
+import { COOKIES_REFRESH_TOKEN_EXPIRES_IN } from "@/app/config/tokens";
 
 const encoder = new TextEncoder();
 const JWT_SECRET = encoder.encode(process.env.JWT_SECRET!);
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
       path: "/",
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
-      maxAge: COOKIES_TOKEN_EXPIRES_IN,
+      maxAge: COOKIES_REFRESH_TOKEN_EXPIRES_IN,
     });
 
     return response;

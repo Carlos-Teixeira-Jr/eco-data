@@ -3,7 +3,7 @@ import { supabase } from "@/app/lib/db/supabase";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { COOKIES_TOKEN_EXPIRES_IN, JWT_EXPIRES_IN, REFRESH_EXPIRES_IN } from "@/app/config/tokens";
+import { JWT_EXPIRES_IN, REFRESH_EXPIRES_IN, COOKIES_ACCESS_TOKEN_EXPIRES_IN, COOKIES_REFRESH_TOKEN_EXPIRES_IN } from "@/app/config/tokens";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const REFRESH_SECRET = process.env.REFRESH_SECRET!;
@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
         ip_address:
           req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
           "unknown",
-        expires_at: new Date(Date.now() + COOKIES_TOKEN_EXPIRES_IN), // 30 dias
+        expires_at: new Date(Date.now() + COOKIES_REFRESH_TOKEN_EXPIRES_IN), // 30 dias
       },
     ]);
 
@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       path: "/",
-      maxAge: COOKIES_TOKEN_EXPIRES_IN,
+      maxAge: COOKIES_REFRESH_TOKEN_EXPIRES_IN,
     });
 
     response.cookies.set("token", token, {
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       path: "/",
-      maxAge: COOKIES_TOKEN_EXPIRES_IN,
+      maxAge: COOKIES_REFRESH_TOKEN_EXPIRES_IN,
     });
 
     return response;
