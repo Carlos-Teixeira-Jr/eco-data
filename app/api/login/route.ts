@@ -3,7 +3,7 @@ import { supabase } from "@/app/lib/db/supabase";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { JWT_EXPIRES_IN, REFRESH_EXPIRES_IN, COOKIES_ACCESS_TOKEN_EXPIRES_IN, COOKIES_REFRESH_TOKEN_EXPIRES_IN } from "@/app/config/tokens";
+import { JWT_EXPIRES_IN, REFRESH_EXPIRES_IN, COOKIES_REFRESH_TOKEN_EXPIRES_IN } from "@/app/config/tokens";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const REFRESH_SECRET = process.env.REFRESH_SECRET!;
