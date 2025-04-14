@@ -15,7 +15,7 @@ const layerColors = [
   "bg-primary-100",
   "bg-secondary-500",
   "bg-tertiary-500",
-  "bg-secondary-500",
+  "bg-neutral-600",
   "bg-neutral-500",
   "bg-neutral-100",
   "bg-tertiary-100",
@@ -107,7 +107,7 @@ function DisclosureItem({ item, depthLevel }: IDisclosureItem) {
       <div>
         <DisclosureButton
           onClick={handleToggle}
-          className={`flex mx-auto text-lg items-center justify-between m-0 w-full p-2 text-left ${bgColor} rounded-md`}
+          className={`flex mx-auto text-lg items-center justify-between m-0 h-fit min-h-fit w-full p-2 text-left ${bgColor} rounded-md`}
         >
           {item.vernacularName || item.scientificName}
           {item.numDescendants > 0 && (
@@ -117,7 +117,7 @@ function DisclosureItem({ item, depthLevel }: IDisclosureItem) {
           )}
         </DisclosureButton>
 
-        <DisclosurePanel className="p-2 pl-4">
+        <DisclosurePanel className="p-1 pl-4">
           {isOpen && children?.length
             ? children.map((child) => (
                 <DisclosureItem

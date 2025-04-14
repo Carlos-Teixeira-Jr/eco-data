@@ -74,7 +74,7 @@ export const ListCard = ({ data }: IListCard) => {
       }
     }
     setOverflowingDescriptions(result);
-  }, [data])
+  }, [data]);
 
   const dataInfo: DataInfo[] = [
     {
@@ -148,11 +148,11 @@ export const ListCard = ({ data }: IListCard) => {
 
   return (
     <div className="card min-w-57 min-h-62 h-full flex flex-col justify-between">
-      <div className="flex gap-2">
-        <h6>Chave taxônomica: </h6>
-        <p className="text-primary-300 text-xs">{key}</p>
-      </div>
       <div>
+        <div className="flex gap-2">
+          <h6>Chave taxônomica: </h6>
+          <p className="text-primary-300 text-xs">{key}</p>
+        </div>
         {dataInfo.map(({ label, value }) => {
           if (!value || Array.isArray(value)) return null;
 
