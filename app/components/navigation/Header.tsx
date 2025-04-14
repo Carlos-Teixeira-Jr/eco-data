@@ -24,22 +24,23 @@ const Header = () => {
   const dispatch = useAppDispatch();
   const navigator = useRouter();
   const { user } = useAppSelector((state: RootState) => state.auth);
-  const [userName, setUserName] = useState<string | null>(null)
+  const [userName, setUserName] = useState<string | null>(null);
 
   useEffect(() => {
     if (user && user.name) {
-      const userNameFomatted = user.name.split(" ").length > 1
-      ? user.name
-          .split(" ")
-          .slice(0, 2)
-          .map((n) => n[0].toUpperCase())
-          .join("")
-      : user.name.slice(0, 1).toUpperCase();
+      const userNameFomatted =
+        user.name.split(" ").length > 1
+          ? user.name
+              .split(" ")
+              .slice(0, 2)
+              .map((n) => n[0].toUpperCase())
+              .join("")
+          : user.name.slice(0, 1).toUpperCase();
 
-      setUserName(userNameFomatted)
+      setUserName(userNameFomatted);
     }
   }, [user]);
-    
+
   const handleLogout = async () => {
     try {
       setIsLoading(true);
@@ -94,9 +95,7 @@ const Header = () => {
             <h4 className="text-primary-900 font-bold">{userName}</h4>
           </div>
         ) : (
-          <Link href="/profile">
-            <UserIcon fill="#fff" />
-          </Link>
+          <UserIcon fill="#fff" />
         )}
 
         {isLoading ? (
