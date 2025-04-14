@@ -44,6 +44,7 @@ const HeaderList = ({ menuIsOpen }: IHeaderList) => {
       setTimeout(() => {
         setIsLoading(false);
         navigator.push("/");
+        menuIsOpen(false);
       }, 3000);
     } catch (error) {
       console.error("Erro ao fazer logout", error);
@@ -70,11 +71,7 @@ const HeaderList = ({ menuIsOpen }: IHeaderList) => {
         <ButtonLoader btnIsDark={true} className="m-0 w-full " />
       ) : (
         <button
-          className={`m-0 block w-full md:hidden ${
-            pathname === "/login"
-              ? "hidden"
-              : "transition duration-500 ease-in-out"
-          }`}
+          className={`m-0 block w-full md:hidden transition duration-500 ease-in-out`}
           onClick={() => {
             if (isAuthenticated) {
               handleLogout();

@@ -8,7 +8,7 @@ import {
 } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/16/solid";
 import { useRouter } from "next/navigation";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import ButtonLoader from "../info/loaders/ButtonLoader";
 
 interface IListCard {
@@ -43,6 +43,7 @@ export const ListCard = ({ data }: IListCard) => {
   const navigator = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [hasMapData, setHasMapData] = useState(false);
 
   const [expandedDescription, setExpandedDescription] =
     useState<CardDescExpantion>({
@@ -159,7 +160,7 @@ export const ListCard = ({ data }: IListCard) => {
           return (
             <div className="flex flex-col py-2" key={label}>
               <label>{label}</label>
-              <h5 className="text-primary-100">{value}</h5>
+              <h5>{value}</h5>
             </div>
           );
         })}

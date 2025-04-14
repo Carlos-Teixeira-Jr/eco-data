@@ -4,6 +4,7 @@ import { COOKIES_ACCESS_TOKEN_EXPIRES_IN } from "./app/config/tokens";
 
 const encoder = new TextEncoder();
 const JWT_SECRET = encoder.encode(process.env.JWT_SECRET!);
+const REFRESH_SECRET = encoder.encode(process.env.REFRESH_SECRET!);
 
 const PUBLIC_ROUTES = [
   "/",
@@ -73,7 +74,7 @@ export async function middleware(req: NextRequest) {
       }
 
       try {
-        const { payload } = await jwtVerify(refreshToken, JWT_SECRET);
+        const { payload } = await jwtVerify(refreshToken, REFRESH_SECRET);
 
         const newAccessToken = await new SignJWT({
           id: payload.id,

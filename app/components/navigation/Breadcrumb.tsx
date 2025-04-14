@@ -41,6 +41,10 @@ export function Breadcrumb() {
       break;
   }
 
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <section className="bg-neutral-700 md:mt-[5.5%] shadow-primary-300 shadow-xl hidden md:block">
       <div className="md:px-41 px-8 py-2">

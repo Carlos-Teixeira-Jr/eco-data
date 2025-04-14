@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <ReduxProvider>
           <Header />
-          {pathname !== "/" && <Breadcrumb />}
+          {<Breadcrumb />}
           <main>{children}</main>
           <Footer />
         </ReduxProvider>

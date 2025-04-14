@@ -9,17 +9,13 @@
  * de ocorrência disponíveis (status HTTP 200), ou false caso contrário.
  * Registra uma mensagem de erro no console se a operação de fetch falhar.
  */
-
 export const hasOccurrenceData = async (taxonKey: number): Promise<boolean> => {
   if (!taxonKey) return false;
 
   const tileURL = `https://api.gbif.org/v2/map/occurrence/density/2/2/1@1x.png?srs=EPSG:3857&taxonKey=${taxonKey}`;
 
-  console.log("teste")
-
   try {
     const res = await fetch(tileURL, { method: "GET", cache: "reload" });
-    console.log("🚀 ~ hasOccurrenceData ~ res:", res)
 
     return res.status === 200;
   } catch (error) {

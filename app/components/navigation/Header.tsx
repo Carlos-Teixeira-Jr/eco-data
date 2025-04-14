@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import SiapesqLogo from "../../assets/logos/siapesqlogo.svg";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import HeaderList from "./HeaderList";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { persistor, RootState } from "@/app/redux/store";
-import { useAppDispatch } from "@/app/redux/hooks/reduxHook";
+import { useAppDispatch, useAppSelector } from "@/app/redux/hooks/reduxHook";
 import ButtonLoader from "../info/loaders/ButtonLoader";
 import { logout } from "@/app/redux/slices/authSlice";
 import { clearSelectedItem } from "@/app/redux/slices/fetchParamsSlicer";
@@ -23,7 +23,23 @@ const Header = () => {
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
   const dispatch = useAppDispatch();
   const navigator = useRouter();
+  const { user } = useAppSelector((state: RootState) => state.auth);
+  const [userName, setUserName] = useState<string | null>(null)
 
+  useEffect(() => {
+    if (user && user.name) {
+      const userNameFomatted = user.name.split(" ").length > 1
+      ? user.name
+          .split(" ")
+          .slice(0, 2)
+          .map((n) => n[0].toUpperCase())
+          .join("")
+      : user.name.slice(0, 1).toUpperCase();
+
+      setUserName(userNameFomatted)
+    }
+  }, [user]);
+    
   const handleLogout = async () => {
     try {
       setIsLoading(true);
@@ -73,7 +89,11 @@ const Header = () => {
       </nav>
 
       <div className="flex items-center gap-5">
-        {isAuthenticated && (
+        {isAuthenticated && userName ? (
+          <div className="flex items-center justify-center rounded-full border-2 p-2 border-primary-800 w-10 h-10">
+            <h4 className="text-primary-900 font-bold">{userName}</h4>
+          </div>
+        ) : (
           <Link href="/profile">
             <UserIcon fill="#fff" />
           </Link>

@@ -7,8 +7,11 @@ import { clearData } from "@/app/redux/slices/dataSlice";
 import { clearSelectedItem, setSelectedItem } from "@/app/redux/slices/fetchParamsSlicer";
 import { useState } from "react";
 
+interface ISearchInput {
+  onSearch?: () => void
+}
 
-const SearchInput = () => {
+const SearchInput = ({onSearch}: ISearchInput) => {
   const [inputValue, setInputValue] = useState("");
   const [submittedValue, setSubmittedValue] = useState<string | null>(null);
   const dispatch = useAppDispatch();
@@ -34,10 +37,14 @@ const SearchInput = () => {
     );
 
     setSubmittedValue(inputValue);
+    onSearch?.()
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") handleSearch();
+    if (e.key === "Enter") {
+      handleSearch();
+      onSearch?.()
+    } 
   };
 
   /**
@@ -53,11 +60,11 @@ const SearchInput = () => {
   };
 
   return (
-    <section className="w-full pb-5 relative">
+    <section className="w-full pb-0 md:pb-5 relative">
       <input
         type="text"
         value={inputValue}
-        className="w-full p-2 pr-10 border border-neutral-700 rounded-md bg-secondary-200 placeholder:text-gray-500"
+        className="w-full p-2 pr-10 h-13 md:h-11 border border-neutral-700 rounded-md bg-secondary-200 placeholder:text-gray-500"
         placeholder="Buscar por termos, palavras-chave ou autores"
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}

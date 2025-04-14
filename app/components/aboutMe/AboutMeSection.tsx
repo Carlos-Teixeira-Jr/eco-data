@@ -7,7 +7,7 @@ const AboutMeSection = () => {
         </h1>
       </div>
       <div className="flex-1">
-        <h5 className="font-normal text-lg">
+        <h5 className="font-normal text-lg text-neutral-500">
           Olá! Sou desenvolvedor full-stack com mais de 2 anos de experiência em
           projetos reais, liderando equipe e entregando soluções com Next.js,
           NestJS, MongoDB e TypeScript. Sigo boas práticas como Clean Code,

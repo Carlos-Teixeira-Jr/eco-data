@@ -13,7 +13,6 @@ import { logout } from "../lib/auth/logout";
  */
 export function useAuthRefresh() {
   useEffect(() => {
-    console.log("hook atyivado")
     const interval = setInterval(async () => {
       try {
         const response = await fetch('/api/refreshToken', {
@@ -30,7 +29,7 @@ export function useAuthRefresh() {
         const data = await response.json();
 
         if (data.token) {
-          console.log("Token renovado com sucesso.");
+          console.info("Token renovado com sucesso.");
         } else {
           console.error("Token não retornado. Logout automático...");
           await logout();

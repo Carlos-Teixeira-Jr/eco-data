@@ -58,7 +58,7 @@ const SpeciesMap = ({ taxonKey }: SpeciesMapProps) => {
         </div>
       ) : (
         <div>
-          <h5 className="text-neutral-400">{<i>Esta espécie ainda não possui dados de ocorrência</i>}</h5>
+          <h4>Esta espécie ainda não possui dados de ocorrência</h4>
         </div>
       )}
     </>

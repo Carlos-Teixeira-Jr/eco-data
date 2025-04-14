@@ -3,16 +3,17 @@ import { supabase } from "@/app/lib/db/supabase";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { JWT_EXPIRES_IN, REFRESH_EXPIRES_IN, COOKIES_REFRESH_TOKEN_EXPIRES_IN } from "@/app/config/tokens";
+import { COOKIES_REFRESH_TOKEN_EXPIRES_IN, JWT_EXPIRES_IN, REFRESH_EXPIRES_IN } from "@/app/config/tokens";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const REFRESH_SECRET = process.env.REFRESH_SECRET!;
+
 
 /**
  * POST /api/login
  *
  * Realiza o login de um usuário com email e senha.
- * Verifica se o email e a senha informados são válidos.
+ * Verifica se o email e senha informados são válidos.
  * Se sim, retorna um token de acesso e um token de refresh.
  *
  * @param {NextRequest} req
@@ -32,7 +33,7 @@ export async function POST(req: NextRequest) {
 
     const { data: user, error } = await supabase
       .from("users")
-      .select("id, email, password")
+      .select("id, email, password, name")
       .eq("email", email)
       .single();
 
@@ -52,7 +53,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const token = jwt.sign({ id: user.id }, JWT_SECRET, {
+    const token = jwt.sign({ id: user.id, name: user.name }, JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
     });
 
@@ -68,14 +69,14 @@ export async function POST(req: NextRequest) {
         ip_address:
           req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
           "unknown",
-        expires_at: new Date(Date.now() + COOKIES_REFRESH_TOKEN_EXPIRES_IN), // 30 dias
+        expires_at: new Date(Date.now() + COOKIES_REFRESH_TOKEN_EXPIRES_IN * 1000), // 30 dias
       },
     ]);
 
     const response = NextResponse.json({
       message: "Login realizado com sucesso.",
       token,
-      user: { id: user.id, email: user.email },
+      user: { id: user.id, email: user.email, name: user.name },
     });
 
     response.cookies.set("refreshToken", refreshToken, {

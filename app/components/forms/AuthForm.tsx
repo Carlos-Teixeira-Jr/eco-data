@@ -294,7 +294,7 @@ const AuthForm = () => {
           }, 5000);
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
         setShowToast({
           show: true,
           message: "Erro de rede. Tente novamente.",

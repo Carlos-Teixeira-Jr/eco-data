@@ -180,7 +180,7 @@ export default function aboutApp() {
 
       <section className="w-full flex flex-col-reverse md:flex-row justify-evenly items-center">
         <div className="flex flex-col py-5 md:py-0">
-          <h2 className="text-2xl font-semibold text-primary-100 mb-2">
+          <h2 className="text-2xl font-semibold text-primary-100 mb-2 text-center md:text-start">
             Funcionalidades Técnicas
           </h2>
           <ul className="list-disc flex flex-col gap-2 bg-white/20 backdrop-blur-md rounded-xl border border-white/20 shadow-md p-10">
@@ -213,7 +213,7 @@ export default function aboutApp() {
           <SecurityIcon className="w-20 h-20 md:w-40 md:h-40" />
         </div>
         <div className="flex flex-col py-5 md:py-0">
-          <h2 className="text-2xl font-semibold text-primary-100 mb-2">
+          <h2 className="text-2xl font-semibold text-primary-100 mb-2 text-center md:text-start">
             Arquitetura de Segurança
           </h2>
           <ul className="list-disc flex flex-col gap-2 bg-white/20 backdrop-blur-md rounded-xl border border-white/20 shadow-md p-10">
@@ -241,7 +241,7 @@ export default function aboutApp() {
 
       <section className="w-full flex flex-col-reverse md:flex-row justify-evenly items-center">
         <div className="flex flex-col py-5 md:py-0">
-          <h2 className="text-2xl font-semibold text-primary-100 mb-2">
+          <h2 className="text-2xl font-semibold text-primary-100 mb-2 text-center md:text-start">
             Gerenciamento de Estado
           </h2>
           <ul className="list-disc flex flex-col gap-2 bg-white/20 backdrop-blur-md rounded-xl border border-white/20 shadow-md p-10">
@@ -273,7 +273,7 @@ export default function aboutApp() {
           <StyleIcon className="w-20 h-20 md:w-40 md:h-40" />
         </div>
         <div className="flex flex-col py-5 md:py-0">
-          <h2 className="text-2xl font-semibold text-primary-100 mb-2">
+          <h2 className="text-2xl font-semibold text-primary-100 mb-2 text-center md:text-start">
             UI/UX & Performance
           </h2>
           <ul className="list-disc flex flex-col gap-2 bg-white/20 backdrop-blur-md rounded-xl border border-white/20 shadow-md p-10">
@@ -298,7 +298,7 @@ export default function aboutApp() {
 
       <section className="w-full flex flex-col-reverse md:flex-row justify-evenly items-center">
         <div className="flex flex-col py-5 md:py-0">
-          <h2 className="text-2xl font-semibold text-primary-100 mb-2">
+          <h2 className="text-2xl font-semibold text-primary-100 mb-2 text-center md:text-start">
             Outras funcionalidades
           </h2>
           <ul className="list-disc flex flex-col gap-2 bg-white/20 backdrop-blur-md rounded-xl border border-white/20 shadow-md p-10">
@@ -325,7 +325,7 @@ export default function aboutApp() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-primary-100 mb-2">
+        <h2 className="text-2xl font-semibold text-primary-100 mb-2 text-center md:text-start">
           Tecnologias Usadas
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-center">

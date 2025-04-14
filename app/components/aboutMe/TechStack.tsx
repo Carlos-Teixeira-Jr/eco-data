@@ -36,7 +36,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1200px-Nextjs-logo.svg.png",
       width: "120px",
       resume:
-        "I work with Next.js, leveraging its hybrid rendering (SSR & SSG) to build fast and scalable applications. I use API Routes for backend logic, optimize performance with dynamic routing and image handling, and take advantage of its built-in TypeScript support. I'm also experienced in integrating Next.js with databases, authentication, and edge functions to create efficient and seamless web experiences.",
+        "Trabalho com Next.js, aproveitando seus recursos de renderização híbrida (SSR e SSG) para criar aplicações rápidas e escaláveis. Utilizo API Routes para criar proxis entre frontend e o backend, otimizo o desempenho com roteamento dinâmico e tratamento de imagens e tiro o melhor proveito do suporte integrado a TypeScript para fortalecer a tipagem do Javascript. Também tenho experiência em integrar Next.js com bancos de dados, criar fluxos de autenticação via tokens e funções rodando em Edge Servers para criar experiências web eficientes e integradas.",
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
       width: "",
       resume:
-        "I work with React.js, building dynamic and interactive user interfaces using component-based architecture. I leverage hooks for state and lifecycle management, optimize performance with React memoization and context API, and create seamless experiences with React Router for navigation. I also integrate React with modern styling solutions like Tailwind, MUI, and Styled Components, ensuring responsive and scalable applications.",
+        "Trabalho com React.js criando interfaces de usuário dinâmicas e interativas usando arquitetura baseada em componentes funcionais. Utilizo hooks para gerenciamento de estado de variáveis e ciclo de vida de componentes, otimizo o desempenho com memorização e API de contexto do React e crio experiências integradas com o React Router para navegação. Também integro o React com soluções de estilo modernas, como Tailwind, MUI e Styled Components, garantindo aplicativos responsivos e escaláveis.",
     },
     {
       id: 3,
@@ -56,7 +56,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png",
       width: "",
       resume:
-        "I work with Tailwind CSS to create highly customizable and responsive designs using utility-first classes. I leverage its flexbox and grid systems for layout management, utilize responsive breakpoints for mobile-first designs, and apply custom theming to match branding requirements. Tailwind allows me to quickly prototype and build scalable, maintainable styles without writing custom CSS, ensuring clean and efficient code.",
+        "Trabalho com o Tailwind CSS para criar designs altamente personalizáveis ​​e responsivos usando classes que priorizam a utilidade. Utilizo seus sistemas flexbox e grid para gerenciamento de layout, utilizo breakpoints responsivos para designs mobile first e aplico temas personalizados para atender aos requisitos da marca. O Tailwind me permite prototipar e construir estilos escaláveis ​​e sustentáveis ​​rapidamente, sem precisar escrever CSS personalizado, garantindo um código limpo e eficiente.",
     },
     {
       id: 4,
@@ -66,7 +66,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png",
       width: "100px",
       resume:
-        "I work with Node.js to build scalable and efficient server-side applications. I leverage its asynchronous, event-driven architecture to handle high concurrency, and use Express.js for creating RESTful APIs. I'm experienced in integrating databases like MongoDB and PostgreSQL, handling authentication with JWT, and building server-side logic for various functionalities. Node.js allows me to create fast, lightweight, and high-performance backends that scale with ease.",
+        "Trabalho com Node.js para criar aplicações escaláveis ​​e eficientes de backend. Aproveito sua arquitetura assíncrona e orientada a eventos para lidar com alta concorrência e uso Express.js para criar APIs RESTful. Tenho experiência em integração de bancos de dados como MongoDB e PostgreSQL, gerenciamento de autenticação com JWT e construção de lógica do lado do servidor para diversas funcionalidades. O Node.js me permite criar backends rápidos, leves e de alto desempenho que escalam com facilidade.",
     },
     {
       id: 5,
@@ -76,7 +76,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/1200px-MongoDB_Logo.svg.png",
       width: "150px",
       resume:
-        "I work with MongoDB to build flexible, scalable databases for applications. I leverage its document-oriented model to store and query data efficiently, using Mongoose for schema validation and data manipulation. I'm experienced in performing complex queries, indexing for optimization, and handling relationships through embedding or referencing. MongoDB's scalability and performance allow me to design databases that grow seamlessly with the application.",
+        "Trabalho com o MongoDB para construir bancos de dados flexíveis e escaláveis ​​para minhas aplicações. Aproveito seu modelo orientado a documentos para armazenar e consultar dados de forma eficiente, utilizando o Mongoose para validação de schemas e manipular dados. Tenho experiência em executar consultas complexas, indexar para otimização e lidar com relacionamentos por meio de incorporação ou referência. A escalabilidade e o desempenho do MongoDB me permitem projetar bancos de dados que crescem perfeitamente com a aplicação.",
     },
     {
       id: 6,
@@ -86,7 +86,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png",
       width: "60px",
       resume:
-        "I work with TypeScript to enhance the development of scalable and maintainable applications. I use strong typing to catch errors at compile time, implement interfaces and type aliases for clear data structures, and take advantage of generics for reusable and flexible code. TypeScript improves code quality and collaboration by ensuring better tooling, autocompletion, and refactoring support, making the development process more efficient and reliable.",
+        "Trabalho com TypeScript para aprimorar o desenvolvimento de aplicações escaláveis ​​e sustentáveis. Utilizo tipagem forte para detectar erros em tempo de compilação, implementar interfaces e alias de tipo para estruturas de dados claras e aproveitar os recursos de tipagem genérica para criar código reutilizável e flexível. O TypeScript aprimora a qualidade e a colaboração do código, garantindo melhores ferramentas, autocomplete e suporte à refatoração, tornando o processo de desenvolvimento mais eficiente e confiável.",
     },
     {
       id: 7,
@@ -96,7 +96,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1200px-Git_icon.svg.png",
       width: "65px",
       resume:
-        "I work with Git for version control, using it to manage code changes and collaborate efficiently on projects. I follow a structured workflow, creating feature branches, committing frequently with clear messages, and leveraging git rebase and merge for handling conflicts. I also use GitHub and GitLab for remote repositories, collaborating on pull requests, and maintaining code quality through reviews. Git ensures smooth collaboration, code history tracking, and seamless deployment workflows.",
+        "Trabalho com o Git para controle de versões, utilizando-o para gerenciar alterações de código e colaborar eficientemente em projetos. Sigo um fluxo de trabalho estruturado, criando branches de funcionalidades, realizando conventional commits com mensagens claras e utilizando o rebase e o merge do Git para lidar com conflitos. Também utilizo o GitHub e o GitLab para repositórios remotos, colaborando em pull requests e mantendo a qualidade do código por meio de revisões. O Git garante colaboração fluida, acompanhamento do histórico de código e fluxos de trabalho de implantação perfeitos.",
     },
     {
       id: 8,
@@ -106,7 +106,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png",
       width: "70px",
       resume:
-        "I work with GitHub to manage and collaborate on projects using version control. I use it for hosting repositories, creating and reviewing pull requests, and managing issues and projects for tracking progress. I leverage GitHub Actions for continuous integration and deployment (CI/CD), automating testing and deployment workflows. GitHub enhances collaboration, version control, and project management, making it a central tool in my development process.",
+        "Trabalho com o GitHub para gerenciar e colaborar em projetos usando controle de versão. Utilizo-o para hospedar repositórios, criar e revisar pull requests e gerenciar problemas e projetos para acompanhar o progressode forma clara. Utilizo o GitHub Actions para integração e implantação contínuas (CI/CD), automatizando fluxos de trabalho de teste e implantação. O GitHub aprimora a colaboração, o controle de versão e o gerenciamento de projetos, tornando-o uma ferramenta central no meu processo de desenvolvimento.",
     },
     {
       id: 10,
@@ -116,7 +116,7 @@ const TechStack = () => {
         "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png",
       width: "50px",
       resume:
-        "I work with Java to build robust and high-performance applications. I leverage its object-oriented principles like inheritance, polymorphism, and encapsulation to create maintainable code. I use popular frameworks like Spring for building scalable APIs and microservices, and utilize tools like Hibernate for database management. Java's strong typing and vast ecosystem allow me to develop secure, scalable, and cross-platform applications efficiently.",
+        "Trabalho com Java para construir aplicações robustas e de alto desempenho. Aproveito seus princípios de orientação a objetos, como herança, polimorfismo e encapsulamento, para criar código sustentável. Utilizo frameworks populares como Spring para construir APIs e microsserviços escaláveis e utilizo ferramentas como o Hibernate para gerenciamento de banco de dados. A tipagem robusta e o vasto ecossistema do Java me permitem desenvolver aplicações seguras, escaláveis ​​e multiplataforma com eficiência.",
     },
     {
       id: 9,
@@ -126,7 +126,7 @@ const TechStack = () => {
         "https://www.vhv.rs/dpng/d/498-4989583_nestjs-logo-hd-png-download.png",
       width: "70px",
       resume:
-        "I work with NestJS to build scalable and maintainable server-side applications using TypeScript. I leverage its modular architecture to organize features and services, implement dependency injection for clean and testable code, and use decorators for routing, middleware, and validation. NestJS integrates easily with databases, authentication systems, and microservices, providing a robust and efficient framework for developing backend APIs and services.",
+        "Trabalho com NestJS para criar aplicações escaláveis ​​e sustentáveis ​​do lado do servidor usando TypeScript. Aproveito sua arquitetura modular para organizar recursos e serviços, implementar injeção de dependências para um código limpo e testável e utilizar decoradores para roteamento, middleware e validação. O NestJS integra-se facilmente com bancos de dados, sistemas de autenticação e microsserviços, fornecendo uma estrutura robusta e eficiente para o desenvolvimento de APIs e serviços de back-end.",
     },
   ];
 
@@ -175,7 +175,7 @@ const TechStack = () => {
         ))}
       </div>
       <div className="md:w-2/3 py-8">
-        <h5 className="font-normal">{selectedResume}</h5>
+        <h5 className="font-normal text-neutral-500">{selectedResume}</h5>
       </div>
     </section>
   );

@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const accessToken = jwt.sign({ id: newUser.id }, JWT_SECRET, {
+    const accessToken = jwt.sign({ id: newUser.id, name: newUser.name }, JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
     });
 

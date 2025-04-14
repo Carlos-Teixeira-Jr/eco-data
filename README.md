@@ -8,8 +8,9 @@ Construído com **Next.js (App Router), TypeScript, Tailwind CSS, Redux Toolkit*
 
 ## **Principais Funcionalidades**
 
-- ✅ Autenticação com **JWT + Refresh Token**
-- ✅ Sistema de login, logout, signup com proteção de rotas
+- ✅ Autenticação com **JWT + Refresh Token** http only para evitar ataques XXS (Cross-Site Scripting)
+- ✅ Sistema de login, logout, signup com sistema de verificação e atualização de tokens de acesso
+- ✅ Rotas protegidas com renovação automática de tokens via middleware em edge, garantindo segurança e baixa latência
 - ✅ Busca taxonômica utilizando a **API do GBIF**
 - ✅ Exibição de **carrossel de imagens**, **mapa de distribuição de espécies** e **perfis biológicos**
 - ✅ Acordeão interativo com árvore taxonômica
@@ -34,6 +35,16 @@ Construído com **Next.js (App Router), TypeScript, Tailwind CSS, Redux Toolkit*
 - **Outros:** jose (JWT), bcrypt, headlessui
 
 ---
+
+## **Acessar aplicação em produção**
+
+[Eco Data](https://eco-data-chi.vercel.app/)
+
+---
+
+## **Passo-a-passo para inicializar a aplicação em servidor local**
+
+Porta: http://localhost:3000/
 
 ## **Instalação e Execução**
 
@@ -61,3 +72,45 @@ npm install
 ### 2. **Criar chaves de API para o banco de dados**
 
 [Supabase](https://supabase.com/)
+
+### 3. **Configurar variáveis de ambiente**
+
+Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://<seu-projeto>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<sua-anon-key>
+SUPABASE_SERVICE_ROLE_KEY=<sua-service-role-key>
+JWT_SECRET=<uma-senha-secreta-complexa>
+```
+
+### 4. **Inicializar o projeto em servidor local**
+
+```bash
+npm run dev
+```
+
+---
+
+### **Como usar?**
+
+### 1. **Crie uma conta ou faça login**
+- Acesse a aplicação com suas credenciais ou crie uma nova conta para começar.
+
+### 2. **Clique em "Busca" no menu de navegação**
+- Isso levará você à página principal de pesquisa taxonômica.
+
+### 3. **Explore a busca taxonômica**
+- Use o acordeão interativo clicando nas opções para navegar pelos níveis da hierarquia taxonômica — novas camadas serão exibidas conforme você avança.
+- Ou pesquise diretamente no campo de busca por um termo específico.
+- Os cards exibirão os resultados da busca. Clique em "Detalhes" para acessar a página da espécie selecionada.
+
+### 4. **Visualize informações detalhadas da espécie**
+- Na página de detalhes, você encontrará dados básicos sobre a espécie. Quando disponíveis, também poderá ver imagens e um mapa de distribuição global.
+
+---
+
+### **Contato**
+
+Desenvolvido por [Carlos Teixeira Jr](https://github.com/Carlos-Teixeira-Jr) em 2025
+Email: teixeirahist1988@gmail.com
