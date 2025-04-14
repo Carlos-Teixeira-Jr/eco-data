@@ -5,7 +5,7 @@ import { logout } from "@/app/redux/slices/authSlice";
 import { clearSelectedItem } from "@/app/redux/slices/fetchParamsSlicer";
 import { persistor, RootState } from "@/app/redux/store";
 import { useSelector } from "react-redux";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface IHeaderList {
   menuIsOpen: (menuIsopen: boolean) => void;

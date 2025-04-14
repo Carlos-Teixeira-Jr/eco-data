@@ -1,6 +1,5 @@
 import { SpeciesCarousel } from "@/app/components/searchPageComponents/SpeciesCarousel";
 import {
-  SpeciesProfile,
   SpeciesProfileResponse,
 } from "@/app/interfaces/data/profiles.interfaces";
 import Link from "next/link";
