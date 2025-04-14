@@ -8,9 +8,9 @@ export function isValidJSONResponse(res: Response) {
  * @param {PromiseSettledResult<Response>} res O objeto de resposta.
  * @returns {Promise<any>} O conteúdo JSON da resposta, ou nulo se a solicitação falhar.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getJSON = async (
   res: PromiseSettledResult<Response>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Promise<any> =>
   res.status === "fulfilled" && isValidJSONResponse(res.value)
     ? await res.value.json()

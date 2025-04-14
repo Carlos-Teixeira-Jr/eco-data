@@ -12,7 +12,6 @@ interface IHeaderList {
 }
 
 const HeaderList = ({ menuIsOpen }: IHeaderList) => {
-  const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
   const dispatch = useAppDispatch();
