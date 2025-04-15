@@ -38,7 +38,7 @@ Construído com **Next.js (App Router), TypeScript, Tailwind CSS, Redux Toolkit*
 
 ## **Fluxo de autenticação**
 
-<img src=".app/assets/images/app-fluxogram.png" alt="Fluxograma" width="400"/>
+<img src="./app/assets/images/app-fluxogram.png" alt="Fluxograma" width="400"/>
 
 ---
 
