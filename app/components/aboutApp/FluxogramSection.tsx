@@ -34,7 +34,7 @@ export default function FluxogramSection() {
           <Image
             src={Fluxogram}
             alt="Diagrama de autenticação do app"
-            className="w-full"
+            className="w-full pr-3"
             width={1200}
             height={800}
           />
@@ -53,7 +53,7 @@ export default function FluxogramSection() {
               setExpanded(false);
               window.scrollTo({ top: 10, behavior: "smooth" });
             } else {
-              setExpanded(false);
+              setExpanded(true);
             }
           }}
           className="mt-2 self-center text-sm text-primary-100 underline w-full"
