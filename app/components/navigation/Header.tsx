@@ -91,7 +91,7 @@ const Header = () => {
 
       <div className="flex items-center gap-5">
         {isAuthenticated && userName ? (
-          <div className="flex items-center justify-center rounded-full border-2 p-2 border-primary-800 w-10 h-10">
+          <div className="flex items-center justify-center rounded-full border-2 md:p-2 border-primary-800 w-7 h-7 md:w-10 md:h-10">
             <h4 className="text-primary-900 font-bold">{userName}</h4>
           </div>
         ) : (
@@ -123,7 +123,7 @@ const Header = () => {
         </div>
 
         <div
-          className={`absolute top-0 left-0 w-full bg-primary-100 z-40 py-5 flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
+          className={`absolute top-0 left-0 w-full bg-primary-100 z-50 py-5 flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
             menuIsOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-full pointer-events-none"

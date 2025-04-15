@@ -3,6 +3,11 @@ import SecurityIcon from "@/app/assets/icons/SecurityIcon";
 import StyleIcon from "@/app/assets/icons/StyleIcon";
 import SyncIcon from "@/app/assets/icons/SyncIcon";
 import ToolsIcon from "@/app/assets/icons/ToolsIcons";
+import Image from "next/image";
+import Fluxogram from "@/app/assets/images/app-fluxogram.png";
+import MobileFluxogram from "@/app/assets/images/app-fluxogram-mobile.png";
+import FluxogramaSection from "@/app/components/aboutApp/FluxogramSection";
+import FluxogramSection from "@/app/components/aboutApp/FluxogramSection";
 
 export default function aboutApp() {
   const technicalFeatures = [
@@ -72,7 +77,8 @@ export default function aboutApp() {
     },
     {
       id: 7,
-      content: "Lógica de authenticação centralizada usando middlewares a nível de edge para proteção de rotas end-to-end e boa performance ",
+      content:
+        "Lógica de authenticação centralizada usando middlewares a nível de edge para proteção de rotas end-to-end e boa performance ",
       suffix: ".",
     },
   ];
@@ -177,6 +183,8 @@ export default function aboutApp() {
           . O foco está na performance, usabilidade e arquitetura escalável.
         </p>
       </section>
+
+      <FluxogramSection />
 
       <section className="w-full flex flex-col-reverse md:flex-row justify-evenly items-center">
         <div className="flex flex-col py-5 md:py-0">

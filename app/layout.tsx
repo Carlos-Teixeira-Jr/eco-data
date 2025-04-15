@@ -17,8 +17,8 @@ export default function RootLayout({
       <body>
         <ReduxProvider>
           <Breadcrumb />
+          <Header />
           <div className="max-w-[1366px] w-full mx-auto">
-            <Header />
             <main>{children}</main>
           </div>
           <Footer />
