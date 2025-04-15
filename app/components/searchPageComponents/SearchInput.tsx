@@ -16,7 +16,6 @@ const SearchInput = ({onSearch}: ISearchInput) => {
   const [submittedValue, setSubmittedValue] = useState<string | null>(null);
   const dispatch = useAppDispatch();
 
-
   /**
    * Função chamada quando o usuário clica no botão de busca.
    * Verifica se o valor do input está vazio, caso não esteja, 

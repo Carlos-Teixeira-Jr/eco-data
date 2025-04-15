@@ -56,7 +56,7 @@ const SearchPage = () => {
           <div className="block md:hidden w-full">
             <SearchInput onSearch={scrollToCards}/>
           </div>
-          <NestedAccordion rootData={rootData} />
+          <NestedAccordion rootData={rootData} onSearch={scrollToCards}/>
           <DataList cardsRef={cardsRef}/>
         </div>
       )}

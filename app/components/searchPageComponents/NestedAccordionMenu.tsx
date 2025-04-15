@@ -1,5 +1,6 @@
 "use client";
 
+import PlusIcon from "@/app/assets/icons/PlusIcon";
 import { Taxon } from "@/app/interfaces/taxon.interface";
 import { useAppDispatch } from "@/app/redux/hooks/reduxHook";
 import { setSelectedItem } from "@/app/redux/slices/fetchParamsSlicer";
@@ -10,6 +11,7 @@ import {
 } from "@headlessui/react";
 import ChevronUpIcon from "@heroicons/react/16/solid/ChevronUpIcon";
 import { useState } from "react";
+import ButtonLoader from "../info/loaders/ButtonLoader";
 
 const layerColors = [
   "bg-primary-100",
@@ -24,6 +26,7 @@ const layerColors = [
 
 interface INestedAccordion {
   rootData: Taxon[];
+  onSearch: () => void;
 }
 
 /**
@@ -37,12 +40,20 @@ interface INestedAccordion {
  * @prop {Taxon[]} rootData - O array de Taxon a ser renderizado.
  * @returns {JSX.Element} O componente de árvore de espécies.
  */
-export default function NestedAccordion({ rootData }: INestedAccordion) {
+export default function NestedAccordion({
+  rootData,
+  onSearch,
+}: INestedAccordion) {
   return (
     <div className="w-full md:max-w-80 mx-auto bg-white p-4 rounded-lg shadow h-fit">
       {rootData.length > 0 &&
         rootData.map((item) => (
-          <DisclosureItem key={item.key} item={item} depthLevel={0} />
+          <DisclosureItem
+            key={item.key}
+            item={item}
+            depthLevel={0}
+            onSearch={onSearch}
+          />
         ))}
     </div>
   );
@@ -51,6 +62,7 @@ export default function NestedAccordion({ rootData }: INestedAccordion) {
 interface IDisclosureItem {
   item: Taxon;
   depthLevel: number;
+  onSearch: () => void;
 }
 
 /**
@@ -63,11 +75,12 @@ interface IDisclosureItem {
  * @prop {number} depthLevel - O nível de profundidade na árvore de espécies.
  * @returns {JSX.Element} O componente de item da lista de espécies.
  */
-function DisclosureItem({ item, depthLevel }: IDisclosureItem) {
+function DisclosureItem({ item, depthLevel, onSearch }: IDisclosureItem) {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
   const [children, setChildren] = useState<Taxon[] | null>(null);
   const bgColor = layerColors[depthLevel % layerColors.length];
+  const [loading, setLoading] = useState(false);
 
   /**
    * Busca os filhos do item fornecido da API GBIF.
@@ -75,12 +88,23 @@ function DisclosureItem({ item, depthLevel }: IDisclosureItem) {
    * Se os filhos ja foram buscados, nao faz nada.
    * @async
    */
-  const fetchChildren = async () => {
-    const response = await fetch(
-      `https://api.gbif.org/v1/species/${item.key}/children`
-    );
+  const fetchChildren = async (limit?: number, innerOffset?: number) => {
+    let url = `https://api.gbif.org/v1/species/${item.key}/children?status=ACCEPTED`;
+
+    if (limit) {
+      url += `&limit=${limit}`;
+    }
+
+    if (innerOffset) {
+      url += `&offset=${innerOffset}`;
+    }
+
+    const response = await fetch(url);
     const data = await response.json();
-    setChildren(data.results || []);
+
+    if (data?.results?.length) {
+      setChildren((prev) => [...(prev || []), ...data.results]);
+    }
   };
 
   /**
@@ -100,6 +124,13 @@ function DisclosureItem({ item, depthLevel }: IDisclosureItem) {
         await fetchChildren();
       }
     }
+  };
+
+  const handleFetchMoreItems = async () => {
+    setLoading(true);
+    await fetchChildren(5, children?.length || 0);
+    onSearch();
+    setLoading(false);
   };
 
   return (
@@ -124,12 +155,29 @@ function DisclosureItem({ item, depthLevel }: IDisclosureItem) {
                   key={child.key}
                   item={child}
                   depthLevel={depthLevel + 1}
+                  onSearch={onSearch}
                 />
               ))
             : isOpen &&
               children?.length === 0 && (
                 <p className="text-primary-100">{"Sem filhos"}</p>
               )}
+          {loading || children?.length === 0 ? (
+            <ButtonLoader
+              className="border-none h-7 max-h-7 flex w-full justify-end items-center"
+              btnIsDark={false}
+            />
+          ) : (
+            <div
+              className={`flex gap-2 w-full justify-end items-center cursor-pointer hover:scale-105 duration-200 ease-in-out transform ${
+                children?.length === 0 ? "hidden" : ""
+              }`}
+              onClick={() => handleFetchMoreItems()}
+            >
+              <PlusIcon className="w-7 h-7" />
+              <h5>Buscar mais</h5>
+            </div>
+          )}
         </DisclosurePanel>
       </div>
     </Disclosure>
