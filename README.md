@@ -36,6 +36,12 @@ Construído com **Next.js (App Router), TypeScript, Tailwind CSS, Redux Toolkit*
 
 ---
 
+## **Fluxo de autenticação**
+
+<img src="./assets/images/app-fluxogram.png" alt="Fluxograma" width="400"/>
+
+---
+
 ## **Acessar aplicação em produção**
 
 [Eco Data](https://eco-data-chi.vercel.app/)
