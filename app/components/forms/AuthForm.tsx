@@ -208,6 +208,8 @@ const AuthForm = () => {
         });
         setIsLoading(false);
       }
+    } else {
+      setIsLoading(false);
     }
   };
 
@@ -302,6 +304,8 @@ const AuthForm = () => {
         });
         setIsLoading(false);
       }
+    } else {
+      setIsLoading(false);
     }
   };
 

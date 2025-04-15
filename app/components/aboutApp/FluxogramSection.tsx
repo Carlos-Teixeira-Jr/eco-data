@@ -34,13 +34,12 @@ export default function FluxogramSection() {
           <Image
             src={Fluxogram}
             alt="Diagrama de autenticação do app"
-            className="w-full pr-3"
+            className="w-full rounded-2xl border border-secondary-600"
             width={1200}
             height={800}
           />
         </picture>
 
-        {/* Gradiente Fade-Out */}
         {!expanded && isMobile && (
           <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent pointer-events-none" />
         )}
