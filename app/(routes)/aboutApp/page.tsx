@@ -3,10 +3,6 @@ import SecurityIcon from "@/app/assets/icons/SecurityIcon";
 import StyleIcon from "@/app/assets/icons/StyleIcon";
 import SyncIcon from "@/app/assets/icons/SyncIcon";
 import ToolsIcon from "@/app/assets/icons/ToolsIcons";
-import Image from "next/image";
-import Fluxogram from "@/app/assets/images/app-fluxogram.png";
-import MobileFluxogram from "@/app/assets/images/app-fluxogram-mobile.png";
-import FluxogramaSection from "@/app/components/aboutApp/FluxogramSection";
 import FluxogramSection from "@/app/components/aboutApp/FluxogramSection";
 
 export default function aboutApp() {
