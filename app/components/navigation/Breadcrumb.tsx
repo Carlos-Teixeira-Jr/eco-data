@@ -46,7 +46,7 @@ export function Breadcrumb() {
   }
 
   return (
-    <section className="bg-neutral-700 md:mt-[5.5%] shadow-primary-300 shadow-xl hidden md:block">
+    <section className="bg-neutral-700 md:mt-20 shadow-primary-300 shadow-xl hidden md:block">
       <div className="md:px-41 px-8 py-2">
         <h3 className="text-shadow-2xs">{pageName}</h3>
         <nav aria-label="breadcrumb">

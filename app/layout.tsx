@@ -5,7 +5,7 @@ import Footer from "./components/navigation/Footer";
 import Header from "./components/navigation/Header";
 import "./globals.css";
 import ReduxProvider from "./redux/provider/ReduxProvider";
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 export default function RootLayout({
   children,
@@ -16,9 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReduxProvider>
-          <Header />
-          {<Breadcrumb />}
-          <main>{children}</main>
+          <Breadcrumb />
+          <div className="max-w-[1366px] w-full mx-auto">
+            <Header />
+            <main>{children}</main>
+          </div>
           <Footer />
         </ReduxProvider>
       </body>
