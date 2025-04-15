@@ -2,6 +2,7 @@
 
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
+import ImageModal from "./ImageModal";
 
 interface Props {
   images: { identifier: string; title?: string }[];
@@ -9,6 +10,7 @@ interface Props {
 
 export const SpeciesCarousel = ({ images }: Props) => {
   const [current, setCurrent] = useState(0);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const next = () =>
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -18,7 +20,6 @@ export const SpeciesCarousel = ({ images }: Props) => {
 
   return (
     <div className="relative w-full max-w-2xl h-[400px] overflow-hidden rounded-xl border-4 border-secondary-400">
-      {/* Imagens lado a lado */}
       <div
         className="flex transition-transform duration-500 ease-in-out h-full"
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -28,12 +29,12 @@ export const SpeciesCarousel = ({ images }: Props) => {
             key={idx}
             src={img.identifier}
             alt={img.title || `Imagem ${idx + 1}`}
-            className="min-w-full md:h-full object-cover"
+            className="min-w-full md:h-full object-cover cursor-pointer"
+            onClick={() => setModalIsOpen(true)}
           />
         ))}
       </div>
 
-      {/* Botão anterior */}
       <button
         onClick={prev}
         className="absolute flex justify-center items-center px-2 py-2 top-1/2 left-4 -translate-y-1/2 bg-black/40 w-10 h-10 text-white rounded-full hover:bg-black/70 z-10"
@@ -41,7 +42,6 @@ export const SpeciesCarousel = ({ images }: Props) => {
         <ArrowLeftIcon className="w-6 h-6" />
       </button>
 
-      {/* Botão próximo */}
       <button
         onClick={next}
         className="absolute flex justify-center items-center top-1/2 px-2 py-2 right-4 -translate-y-1/2 bg-black/40 w-10 h-10 text-white rounded-full hover:bg-black/70 z-10"
@@ -49,7 +49,6 @@ export const SpeciesCarousel = ({ images }: Props) => {
         <ArrowRightIcon className="w-6 h-6" />
       </button>
 
-      {/* Indicadores */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
         {images.map((_, idx) => (
           <div
@@ -61,6 +60,12 @@ export const SpeciesCarousel = ({ images }: Props) => {
           />
         ))}
       </div>
+
+      <ImageModal
+        isOpen={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+        imageSrc={images[current].identifier}
+      />
     </div>
   );
 };
