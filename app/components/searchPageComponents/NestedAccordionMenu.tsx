@@ -162,7 +162,7 @@ function DisclosureItem({ item, depthLevel, onSearch }: IDisclosureItem) {
               children?.length === 0 && (
                 <p className="text-primary-100">{"Sem filhos"}</p>
               )}
-          {loading || children?.length === 0 ? (
+          {/* {loading || children?.length === 0 ? (
             <ButtonLoader
               className="border-none h-7 max-h-7 flex w-full justify-end items-center"
               btnIsDark={false}
@@ -177,6 +177,33 @@ function DisclosureItem({ item, depthLevel, onSearch }: IDisclosureItem) {
               <PlusIcon className="w-7 h-7" />
               <h5>Buscar mais</h5>
             </div>
+          )} */}
+          {isOpen && children === null ? (
+            <ButtonLoader
+              className="border-none h-7 max-h-7 flex w-full justify-end items-center"
+              btnIsDark={false}
+            />
+          ) : (
+            <>
+              {children && children.length > 0 && (
+                <>
+                  {loading ? (
+                    <ButtonLoader
+                      className="border-none h-7 max-h-7 flex w-full justify-end items-center"
+                      btnIsDark={false}
+                    />
+                  ) : (
+                    <div
+                      className="flex gap-2 w-full justify-end items-center cursor-pointer hover:scale-105 duration-200 ease-in-out transform"
+                      onClick={() => handleFetchMoreItems()}
+                    >
+                      <PlusIcon className="w-7 h-7" />
+                      <h5>Buscar mais</h5>
+                    </div>
+                  )}
+                </>
+              )}
+            </>
           )}
         </DisclosurePanel>
       </div>

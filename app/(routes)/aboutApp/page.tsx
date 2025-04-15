@@ -10,11 +10,11 @@ export default function aboutApp() {
     {
       id: 1,
       content:
-        "Busca por espécies utilizando consumindo a API do GBIF com Server Side Rendering (SSR).",
+        "Busca por espécies consumindo a API do GBIF com uma mescla de Server Side Rendering (SSR) e Static Site Generation (SSG).",
     },
     {
       id: 2,
-      content: "Requisições paralelas com ",
+      content: "Requisições paralelas e tratadas com ",
       code: "Promise.allSettled",
       suffix: " para garantir disponibilidade de dados.",
     },
@@ -51,11 +51,11 @@ export default function aboutApp() {
     {
       id: 3,
       content:
-        "Renovação automática de token por meio de rotas protegidas e SSR seguro.",
+        "Renovação automática de token por meio de rotas protegidas por e SSR seguro.",
     },
     {
       id: 4,
-      content: "Validação de token nas rotas privadas do Next App Router.",
+      content: "Validação de token nas rotas privadas do Next App Router por meio de Edge Middlewares.",
     },
     {
       id: 5,
@@ -70,13 +70,7 @@ export default function aboutApp() {
       content: "Encriptação de senhas com ",
       strong: ["bcrypt"],
       suffix: ".",
-    },
-    {
-      id: 7,
-      content:
-        "Lógica de authenticação centralizada usando middlewares a nível de edge para proteção de rotas end-to-end e boa performance ",
-      suffix: ".",
-    },
+    }
   ];
 
   const stateManagement = [
@@ -84,7 +78,7 @@ export default function aboutApp() {
       id: 1,
       content: "Persistência automática via ",
       code: "redux-persist",
-      suffix: " com integração ao localStorage.",
+      suffix: " com integração ao armazenamento local do navegador.",
     },
     {
       id: 2,
@@ -138,7 +132,7 @@ export default function aboutApp() {
     {
       id: 3,
       content:
-        "Carregadores visuais com animações suaves e transições modernas.",
+        "Loaders visuais com animações suaves e transições modernas.",
     },
     {
       id: 4,
@@ -166,7 +160,7 @@ export default function aboutApp() {
         </h1>
         <p className="text-base leading-relaxed text-neutral-500">
           O <strong>Eco Data</strong> é uma plataforma construída com{" "}
-          <strong>Next.js 14 (App Router + Server Components)</strong> para
+          <strong>Next.js 15 (App Router + Server/Client Components)</strong> para
           explorar, pesquisar e visualizar informações sobre espécies animais
           utilizando a API pública do{" "}
           <a
@@ -358,7 +352,7 @@ export default function aboutApp() {
       </section>
 
       <section>
-        <p className="text-sm text-neutral-400 mt-8">
+        <p className="text-xs text-neutral-400 mt-8">
           Desenvolvido com dedicação por Carlos Teixeira &mdash; 2025.
         </p>
       </section>

@@ -35,19 +35,23 @@ export const SpeciesCarousel = ({ images }: Props) => {
         ))}
       </div>
 
-      <button
-        onClick={prev}
-        className="absolute flex justify-center items-center px-2 py-2 top-1/2 left-4 -translate-y-1/2 bg-black/40 w-10 h-10 text-white rounded-full hover:bg-black/70 z-10"
-      >
-        <ArrowLeftIcon className="w-6 h-6" />
-      </button>
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            className="absolute flex justify-center items-center px-2 py-2 top-1/2 left-4 -translate-y-1/2 bg-black/40 w-10 h-10 text-white rounded-full hover:bg-black/70 z-10"
+          >
+            <ArrowLeftIcon className="w-6 h-6" />
+          </button>
 
-      <button
-        onClick={next}
-        className="absolute flex justify-center items-center top-1/2 px-2 py-2 right-4 -translate-y-1/2 bg-black/40 w-10 h-10 text-white rounded-full hover:bg-black/70 z-10"
-      >
-        <ArrowRightIcon className="w-6 h-6" />
-      </button>
+          <button
+            onClick={next}
+            className="absolute flex justify-center items-center top-1/2 px-2 py-2 right-4 -translate-y-1/2 bg-black/40 w-10 h-10 text-white rounded-full hover:bg-black/70 z-10"
+          >
+            <ArrowRightIcon className="w-6 h-6" />
+          </button>
+        </>
+      )}
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
         {images.map((_, idx) => (
