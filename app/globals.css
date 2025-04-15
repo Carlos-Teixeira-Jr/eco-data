@@ -224,3 +224,25 @@
     }
   }
 }
+
+/* Scrollbar global */
+html, body {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #9dbf21 #eef8cc; /* Firefox */
+}
+
+/* WebKit (Chrome, Edge, Brave, etc.) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef8cc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #eef8cc;
+  border-radius: 8px;
+  border: 2px solid #9dbf21;
+}
